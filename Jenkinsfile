@@ -1,16 +1,17 @@
 pipeline {
-    agent any
-  stages{
+  agent any
+
+  stages {
     stage('Checkout') {
-        steps {
-         checkout scm
-              }
-           }
+      steps {
+        checkout scm
+      }
+    }
+
     stage('Build') {
       steps {
-        sh 'docker compose up --build -d --no-cache'
-            }
-          }
+        sh 'docker-compose up --build -d --no-cache'
+      }
     }
   }
-
+}
